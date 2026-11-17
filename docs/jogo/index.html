@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7B2CBF">
+  <title>Foccus</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icone-192.png">
+  <link rel="apple-touch-icon" href="icone-192.png">
+  <link rel="stylesheet" href="placar.css">
+  <link rel="stylesheet" href="estilo.css">
+  <!-- A ordem destes scripts é necessária para carregar placar e regras. -->
+  <script src="config.js"></script>
+  <script src="placar.js"></script>
+  <script src="placar-ui.js"></script>
+  <script src="regras.js"></script>
+  <script src="pwa.js" defer></script>
+  <script src="jogo.js" defer></script>
+</head>
+<body>
+  <main class="jogo">
+    <header class="topo">
+      <div><p class="marca">🎯 FOCCUS · ENGLISH</p><h1 id="titulo">Foccus</h1></div>
+      <p class="recorde">Recorde <strong id="melhor">0</strong></p>
+    </header>
+
+    <section id="tela-inicio" class="tela" aria-labelledby="titulo">
+      <div class="hero" aria-hidden="true">🎯</div>
+      <h2>Olho vivo, inglês afiado!</h2>
+      <p class="instrucao">Toque nos alvos com palavras em inglês. Evite os alvos proibidos. A cada 5 acertos seguidos, seus pontos dobram. Você tem 30 segundos!</p>
+      <p class="legenda">Bons alvos: <span>📚 🍎 🌞 🐱 🎵</span> · Proibido: <span>🚫</span></p>
+      <button id="botao-jogar" class="botao" type="button">Começar partida</button>
+    </section>
+
+    <section id="tela-jogo" class="tela tela-partida" hidden aria-label="Partida">
+      <div class="painel-tempo">
+        <span><strong id="tempo">30</strong> s</span>
+        <span>Pontos <strong id="pontos">0</strong></span>
+        <span>Combo <strong id="combo">0</strong>/5</span>
+      </div>
+      <p id="mensagem" class="mensagem" aria-live="polite">Toque nos alvos bons!</p>
+      <div id="arena" class="arena" aria-label="Área de alvos"></div>
+      <p class="dica">Toque nos alvos bons; 🚫 tira 15 pontos.</p>
+    </section>
+
+    <section id="tela-fim" class="tela" hidden aria-label="Fim da partida">
+      <div class="hero" aria-hidden="true">🏁</div>
+      <h2>Tempo!</h2>
+      <p class="instrucao">Sua pontuação: <strong id="resultado">0</strong></p>
+      <p id="situacao-salvamento" role="status" aria-live="polite"></p>
+      <button id="botao-de-novo" class="botao" type="button">Jogar de novo</button>
+    </section>
+
+    <aside id="painel-placar" aria-label="Placar"></aside>
+  </main>
+</body>
+</html>

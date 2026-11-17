@@ -1,0 +1,36 @@
+:root { --cor: #7B2CBF; --tinta: #261236; --papel: #fffaff; --fundo: #f4eaff; color-scheme: light; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; min-height: 100%; }
+body { background: var(--cor); color: var(--tinta); font: 17px/1.45 system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+.jogo { width: min(620px, 100%); min-height: 100svh; margin: 0 auto; padding: max(14px, env(safe-area-inset-top)) 14px max(18px, env(safe-area-inset-bottom)); display: grid; align-content: start; gap: 14px; }
+.topo, .tela, #painel-placar { background: var(--papel); border-radius: 20px; padding: 16px; }
+.topo { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.topo h1 { margin: 0; font-size: 1.55rem; line-height: 1.1; }
+.marca { margin: 0 0 4px; color: var(--cor); font-size: .76rem; font-weight: 900; letter-spacing: .1em; }
+.recorde { margin: 0; text-align: right; font-size: .9rem; }
+.recorde strong { display: block; font-size: 1.45rem; }
+.tela { display: grid; justify-items: center; gap: 13px; text-align: center; }
+.tela h2 { margin: 0; font-size: 1.5rem; }
+.hero { font-size: 3.2rem; line-height: 1.1; }
+.instrucao, .legenda, .dica { margin: 0; }
+.legenda { font-size: .9rem; }
+.legenda span { white-space: nowrap; }
+.botao { min-height: 54px; min-width: 200px; padding: 12px 22px; border: 0; border-radius: 15px; background: var(--cor); color: white; font: inherit; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.botao:focus-visible, .alvo:focus-visible { outline: 4px solid #ffc857; outline-offset: 3px; }
+.tela-partida { padding: 12px; gap: 8px; }
+.painel-tempo { width: 100%; display: flex; justify-content: space-around; gap: 6px; font-size: .86rem; }
+.painel-tempo span { display: grid; color: #614677; }
+.painel-tempo strong { color: var(--tinta); font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+#tempo.urgente { color: #c62828; }
+.mensagem { min-height: 1.5em; margin: 0; color: var(--cor); font-size: .95rem; font-weight: 800; }
+.arena { position: relative; width: 100%; height: min(52svh, 430px); min-height: 290px; overflow: hidden; border: 2px solid #ead9fa; border-radius: 18px; background: radial-gradient(circle at 1px 1px, #dfc9f3 1px, transparent 1.5px) 0 0 / 22px 22px, #fbf7ff; touch-action: manipulation; }
+.alvo { position: absolute; display: grid; place-items: center; width: 76px; height: 76px; padding: 4px; transform: translate(-50%, -50%); border: 3px solid #b8e7ca; border-radius: 22px; background: white; box-shadow: 0 5px 0 #d3c2df; color: var(--tinta); cursor: pointer; animation: surgir .16s ease-out; touch-action: manipulation; }
+.alvo-proibido { border-color: #ffb5b5; background: #fff4f4; }
+.alvo-emoji { font-size: 1.65rem; line-height: 1; }
+.alvo-palavra { font-size: .64rem; font-weight: 900; letter-spacing: .02em; }
+.alvo:active { transform: translate(-50%, -50%) scale(.92); }
+@keyframes surgir { from { opacity: 0; scale: .6; } to { opacity: 1; scale: 1; } }
+#painel-placar { padding: 14px 16px; }
+@media (max-height: 650px) { .jogo { gap: 8px; } .topo, .tela { padding: 10px 14px; } .arena { height: 42svh; min-height: 220px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; } }
